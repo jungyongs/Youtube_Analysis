@@ -1,5 +1,5 @@
 # Dscover_2022-2_pA
-# 유튜브 영상 타이틀 및 썸네일 분석을 통한 분야별 영상 전략 수립 (Youtube Marketing strategy through video title and thumbnail image analysis)
+# 유튜브 영상 타이틀 및 썸네일 분석을 통한 분야별 영상 전략 수립 (Youtube Marketing Strategy through Video Title and Thumbnail Image Analysis)
 ### 프로젝트 A조[마케팅] : 김석호 민세연 손정용 이소민
 ---
 ### Introduction
