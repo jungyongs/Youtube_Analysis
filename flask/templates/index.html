@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>유튜브 추천 시스템</title>
+<meta charset="utf-8">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Jua&display=swap" rel="stylesheet">
+<link rel="stylesheet"  href="{{url_for('static', filename='style.css')}}" />
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+<script src="{{url_for('static', filename='colors.js')}}"></script>
+<script src="{{url_for('static', filename='move.js')}}"></script>
+
+</head>
+<body>
+<div id="top">
+    <a href="https://www.youtube.com/" target="_blank" title="유튜브 홈"><img src="{{url_for('static', filename='images/youtube.jpg')}}" width="120" height="56"></a>
+    <h1><a href="content">크리에이어들을 위한 유튜브 추천 시스템</a></h1>
+    <input id='daynight' type="button" value="야간모드" onclick="
+    nightdayhandler(this)" style="cursor:pointer;">
+</div>
+<div id="grid">
+    <div class="category">
+        <div class="index">카테고리</div>
+            <div class='btn review' onclick="changeimage('리뷰'); titlechange();" style="cursor:pointer;">리뷰</div>
+            <div class='btn mukbang' onclick="changeimage('먹방'); titlechange();" style="cursor:pointer;">먹방</div>
+            <div class='btn fashion' onclick="changeimage('패션'); titlechange();" style="cursor:pointer;">패션</div>
+            <br><div class='btn work' onclick="changeimage('운동'); titlechange();" style="cursor:pointer;">운동</div>
+            <div class='btn vlog' onclick="changeimage('일상'); titlechange();" style="cursor:pointer;">일상</div>
+    </div>
+    <div class="content">
+        <div class="subtitle">컨텐츠</div>
+        <div class="container">
+            <img id="image" width="700" height="400">
+        </div>
+    </div>
+</div>
+<div class="next">
+    <input id='thumbnail' type="button" value="썸네일 추천" onclick="location.href='thumbnail'" style="cursor:pointer;">
+    <input id='title' type="button" value="제목 추천" onclick="location.href='title'"style="cursor:pointer;">
+</div>
+</body>
+</html>

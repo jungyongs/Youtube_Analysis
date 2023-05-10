@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>유튜브 추천 시스템</title>
+<meta charset="utf-8">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Jua&display=swap" rel="stylesheet">
+<link rel="stylesheet"  href="{{url_for('static', filename='style.css')}}" />
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+<script src="{{url_for('static', filename='colors.js')}}"></script>
+<script src="{{url_for('static', filename='move.js')}}"></script>
+
+</head>
+<body>
+<div id="top">
+    <a href="https://www.youtube.com/" target="_blank" title="유튜브 홈"><img src="{{url_for('static', filename='images/youtube.jpg')}}" width="120" height="56"></a>
+    <h1><a href="content">크리에이어들을 위한 유튜브 추천 시스템</a></h1>
+    <input id='daynight' type="button" value="야간모드" onclick="
+    nightdayhandlertitle(this)" style="cursor:pointer;">
+</div>
+<div id="grid">
+    <div class="category">
+        <div class="index">카테고리</div>
+            <div class='btn review' onclick="titlechange2('리뷰'); setcontent();" style="cursor:pointer;">리뷰</div>
+            <div class='btn mukbang' onclick="titlechange2('먹방'); setcontent();" style="cursor:pointer;">먹방</div>
+            <div class='btn fashion' onclick="titlechange2('패션'); setcontent();" style="cursor:pointer;">패션</div>
+            <br><div class='btn work' onclick="titlechange2('운동'); setcontent();" style="cursor:pointer;">운동</div>
+            <div class='btn vlog' onclick="titlechange2('일상'); setcontent();" style="cursor:pointer;">일상</div>
+    </div>
+    <div class="content">
+        <div class="subtitle">{{content}} 제목</div>
+        <form id="predict" action="/predict" method="post">
+        <div class="titlefind">
+            <div class="container_text">
+            카테고리 <input type="text" id="title_content" name="title_content" size="10" value={{content}}><br>
+            단어 <input type="text" id ='text_input' name="text_input" size="50" placeholder="제목에 들어갈 단어를 입력하시오" value={{word}}><br>
+            <label for="textlen">길이</label>
+            <input type="number"  name ='textlen' id='textlen' min="2" max="30" value={{len}}></div>
+            <div class='inputfinder'><input type="submit" id="finder" value="검색" style="cursor:pointer" onclick="fillinput(); alertcontent();">
+                <input type="submit" id="reset" value="초기화" style="cursor:pointer" onclick=resetoption();></div>
+        </div>
+        </form>
+        <div class="bot"><div id="titlerec" name="titlerec"><span id='multi'>{{newtitle}}</span></div></div>
+    </div>
+</div>
+<div class="next">
+    <input id='thumbnail' type="button" value="컨텐츠 추천" onclick="location.href='content'" style="cursor:pointer;">
+    <input id='title' type="button" value="썸네일 추천" onclick="location.href='thumbnail'"style="cursor:pointer;">
+</div>
+</body>
+</html>
